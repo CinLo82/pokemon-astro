@@ -1,4 +1,5 @@
 ---
+import type { GetStaticPaths } from "astro";
 
 interface Props {
     url: string;
@@ -9,11 +10,14 @@ const { name, url } = Astro.props;
 const id = url.split('/').at(-2);
 const imageSrc = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${id}.png`;
 
+
 ---
 
-<div class="rounded flex flex-col justify-center items-center p-2 border">
+<a href={`/pokemons/${name}`}
+
+ class="rounded flex flex-col justify-center items-center p-2 border">
 
     <img src={imageSrc} alt="pokemon-image">
 
-    <span>{ name }</span>
-</div>
+    <span class="capitalize">{ name }</span>
+</>

@@ -1,0 +1,127 @@
+---
+import PokemonCard from "../../components/pokemons/PokemonCard.astro";
+import MainLayout from "../../layout/MainLayout.astro";
+
+import type { GetStaticPaths } from 'astro';
+
+export const getStaticPaths = (() => {
+    return [
+            { 
+                params: { name: "bulbasaur" },
+                props: 
+                    { 
+                        name: 'bulbasaur', 
+                        url: "https://pokeapi.co/api/v2/pokemon/1/" 
+                    }
+            },
+            { 
+                params: { name: "ivysaur" },
+                props: 
+                    { 
+                        name: 'ivysaur', 
+                        url: "https://pokeapi.co/api/v2/pokemon/2/" 
+                    }
+            },
+            { 
+                params: { name: "venusaur" },
+                props: 
+                    { 
+                        name: 'venusaur', 
+                        url: "https://pokeapi.co/api/v2/pokemon/3/" 
+                    }
+            },
+            { 
+                params: { name: "charmander" },
+                props: 
+                    { 
+                        name: 'charmander', 
+                        url: "https://pokeapi.co/api/v2/pokemon/4/" 
+                    }
+            },
+            { 
+                params: { name: "charmeleon" },
+                props: 
+                    { 
+                        name: 'charmeleon', 
+                        url: "https://pokeapi.co/api/v2/pokemon/5/" 
+                    }
+            },
+            { 
+                params: { name: "charizard" },
+                props: 
+                    { 
+                        name: 'charizard', 
+                        url: "https://pokeapi.co/api/v2/pokemon/6/" 
+                    }
+            },
+            { 
+                params: { name: "squirtle" },
+                props: 
+                    { 
+                        name: 'squirtle', 
+                        url: "https://pokeapi.co/api/v2/pokemon/7/" 
+                    }
+            },
+            { 
+                params: { name: "wartortle" },
+                props: 
+                    { 
+                        name: 'wartortle', 
+                        url: "https://pokeapi.co/api/v2/pokemon/8/" 
+                    }
+            },
+            { 
+                params: { name: "blastoise" },
+                props: 
+                    { 
+                        name: 'blastoise', 
+                        url: "https://pokeapi.co/api/v2/pokemon/9/" 
+                    }
+            },
+            { 
+                params: { name: "caterpie" },
+                props: 
+                    { 
+                        name: 'caterpie', 
+                        url: "https://pokeapi.co/api/v2/pokemon/10/" 
+                    }
+            },
+            { 
+                params: { name: "metapod" },
+                props: 
+                    { 
+                        name
+                        : 'metapod',
+                        url: "https://pokeapi.co/api/v2/pokemon/11/"
+                    }
+            },
+            
+        ];
+        
+    }) satisfies GetStaticPaths;
+
+    const { name } = Astro.params;
+    const { url } = Astro.props;
+
+    const id = url.split('/').at(-2);
+    const audioSrc = `https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/${ id }.ogg`
+
+---
+
+<MainLayout title="Algun Pokemon" >
+    <section class="mt-10 mx-10 flex flex-col justify-center items-center">
+        <div>
+            <a class="text-2xl capitalize bg-pink-400 rounded p-2 hover:bg-pink-800" href="/">Regresar</a>
+        </div>
+        <PokemonCard 
+            name={name}
+            url={url}
+        />
+        <audio controls class="mt-5" >
+            <source src={audioSrc} type="audio/ogg"/>
+            your browser does not support the audio element
+        </audio>
+    </section>
+
+<h1 class="text-3xl">{name}</h1>
+</MainLayout>
