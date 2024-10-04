@@ -1,23 +1,44 @@
 ---
-import type { GetStaticPaths } from "astro";
 
 interface Props {
     url: string;
     name: string;
+    isBig?: boolean;
 }
 
-const { name, url } = Astro.props;
+const { name, url, isBig = false } = Astro.props;
 const id = url.split('/').at(-2);
 const imageSrc = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${id}.png`;
 
-
 ---
 
+
+ <!--  </a>class={`rounded flex flex-col justify-center items-center p-2 ${ !isBig && 'border' } `}> -->
+
 <a href={`/pokemons/${name}`}
+    class:list={[
+        `rounded flex flex-col justify-center items-center p-2` , 
+        { 
+            border: !isBig
+        },
+    ]}
+>
 
- class="rounded flex flex-col justify-center items-center p-2 border">
+    <img 
+        src={imageSrc} 
+        alt="pokemon-image"
+        class:list={[
+            { 
+                'w-26 h-26': isBig,
+                'w-20 h-20': !isBig
+            },
+        ]}
+    >
 
-    <img src={imageSrc} alt="pokemon-image">
-
-    <span class="capitalize">{ name }</span>
-</>
+    <span class:list={[
+        ` capitalize text-pink-400`,
+        {
+            'text-4xl': isBig
+        }
+        ]}># {id} { name }</span>
+</a>
