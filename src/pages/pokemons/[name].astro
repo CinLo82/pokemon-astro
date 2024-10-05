@@ -1,8 +1,8 @@
 ---
 import type { GetStaticPaths } from 'astro';
-import PokemonCard from "../../components/pokemons/PokemonCard.astro";
-import type { PokemonListResponse } from "../../interfaces/pokemon-list.response";
-import MainLayout from "../../layout/MainLayout.astro";
+import PokemonCard from "@components/pokemons/PokemonCard.astro";
+import type { PokemonListResponse } from "@interfaces/pokemon-list.response";
+import MainLayout from "@layout/MainLayout.astro";
 
 
 export const getStaticPaths = ( async () => {
@@ -23,13 +23,16 @@ export const getStaticPaths = ( async () => {
 
     const id = url.split('/').at(-2);
     const audioSrc = `https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/${ id }.ogg`
-
+    const imageSrc = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${ id }.png`
 ---
 
-<MainLayout title="Algun Pokemon" >
+<MainLayout title=`Pokemon - # ${id} ${name}` 
+    description=`Información sobre el Pokémon ${name}`
+    image={imageSrc}
+>
     <section class="mt-10 mx-10 flex flex-col justify-center items-center">
         <div>
-            <a class="text-2xl capitalize bg-pink-400 rounded p-2 hover:bg-pink-800" href="/">Regresar</a>
+            <a class="text-2xl capitalize bg-pink-400 rounded p-2 hover:bg-pink-800" href="javascript:history.back()">Regresar</a>
         </div>
         <PokemonCard 
             name={name}
