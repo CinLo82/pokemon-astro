@@ -1,5 +1,6 @@
 ---
 import type { GetStaticPaths } from 'astro';
+import { Icon } from 'astro-icon/components'
 import PokemonCard from "@components/pokemons/PokemonCard.astro";
 import type { PokemonListResponse } from "@interfaces/pokemon-list.response";
 import MainLayout from "@layout/MainLayout.astro";
@@ -32,10 +33,17 @@ export const getStaticPaths = ( async () => {
     image={imageSrc}
 >
     <section class="m-10 flex flex-col justify-center items-center">
-        <div class="flex flex-col items-center">
-            <button class="text-2xl capitalize bg-pink-400 rounded p-2 mb-2 hover:bg-pink-800 mx-auto" onclick="history.back()">Regresar</button>
-            <Title>{name}</Title>
+        <div class="flex flex-row">
+            <div class="flex flex-col items-center">
+                <button class="text-2xl capitalize bg-pink-400 rounded p-2 mb-2 hover:bg-pink-800 mx-auto" onclick="history.back()">Regresar</button>
+                <Title>{name}</Title>
+            </div>
+            <button id="btn-favorite" class="ml-4">
+                <Icon  name="heart-outline" size={50}/>
+                <Icon class="hidden" name="heart-full" size={50}/>
+            </button>
         </div>
+      
         <PokemonCard 
             name={name}
             url={url}
@@ -48,3 +56,12 @@ export const getStaticPaths = ( async () => {
     </section>
 
 </MainLayout>
+
+<style>
+    a {
+        @apply hover:underline text-pink-400
+    }
+    #btn-favorite {
+        @apply hover:animate-pulse
+    }
+</style>
