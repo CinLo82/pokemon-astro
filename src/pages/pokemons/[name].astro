@@ -3,6 +3,7 @@ import type { GetStaticPaths } from 'astro';
 import PokemonCard from "@components/pokemons/PokemonCard.astro";
 import type { PokemonListResponse } from "@interfaces/pokemon-list.response";
 import MainLayout from "@layout/MainLayout.astro";
+import Title from '@components/shared/Title.astro';
 
 
 export const getStaticPaths = ( async () => {
@@ -30,9 +31,10 @@ export const getStaticPaths = ( async () => {
     description=`Información sobre el Pokémon ${name}`
     image={imageSrc}
 >
-    <section class="mt-10 mx-10 flex flex-col justify-center items-center">
-        <div>
-            <a class="text-2xl capitalize bg-pink-400 rounded p-2 hover:bg-pink-800" href="javascript:history.back()">Regresar</a>
+    <section class="m-10 flex flex-col justify-center items-center">
+        <div class="flex flex-col items-center">
+            <button class="text-2xl capitalize bg-pink-400 rounded p-2 mb-2 hover:bg-pink-800 mx-auto" onclick="history.back()">Regresar</button>
+            <Title>{name}</Title>
         </div>
         <PokemonCard 
             name={name}
@@ -45,5 +47,4 @@ export const getStaticPaths = ( async () => {
         </audio>
     </section>
 
-<h1 class="text-3xl">{name}</h1>
 </MainLayout>

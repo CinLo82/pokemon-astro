@@ -2,6 +2,7 @@
 import MainLayout from '@layout/MainLayout.astro';
 import type { PokemonListResponse } from '@interfaces/pokemon-list.response';
 import PokemonCard from '@components/pokemons/PokemonCard.astro';
+import Title from '@components/shared/Title.astro';
 
 const resp = await fetch('https://pokeapi.co/api/v2/pokemon/');
 const data = (await resp.json()) as PokemonListResponse ;
@@ -10,7 +11,7 @@ const title = 'Pokemon-Static | Home'
 ---
 
 <MainLayout title={title}>
-    <h1 class="text-3xl ">Listado de Pokemons</h1>
+    <Title>Listado de Pokemons</Title>
     <hr />
     <section
         aria-label="Listado de Pokemons"
