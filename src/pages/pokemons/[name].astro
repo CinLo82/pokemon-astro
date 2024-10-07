@@ -59,10 +59,8 @@ export const getStaticPaths = ( async () => {
 </MainLayout>
 
 <script>
-    interface FavoritePokemon {
-        name: string;
-        id: number;
-    }
+    import type { FavoritePokemon } from '@interfaces/favorite-pokemon'
+ 
 /*
     document.addEventListener('astro:before-preparation', () => {
         console.log('astro:before-preparation')
