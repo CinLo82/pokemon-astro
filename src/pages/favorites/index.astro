@@ -1,4 +1,5 @@
 ---
+import { Counter } from "@components/shared/Counter";
 import Title from "@components/shared/Title.astro";
 import MainLayout from "@layout/MainLayout.astro";
 
@@ -6,5 +7,14 @@ import MainLayout from "@layout/MainLayout.astro";
 
 <MainLayout >
     <Title>Favoritos</Title>
+    <video controls="" autoplay="" transition:persist="playing-video">
+        <source src="https://ia804502.us.archive.org/33/items/GoldenGa1939_3/GoldenGa1939_3_512kb.mp4" type="video/mp4">
+    </video>
+    <Counter 
+        transition:persist="counter"
+        transition:persist-props
+        client:visible 
+        initValue={15}
+    />
 
 </MainLayout>
