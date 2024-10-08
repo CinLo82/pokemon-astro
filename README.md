@@ -1,47 +1,99 @@
-# Astro Starter Kit: Minimal
 
-```sh
-npm create astro@latest -- --template minimal
-```
+```markdown
+# Proyecto Pokémon Astro
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/minimal)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/minimal)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/minimal/devcontainer.json)
+Este es un proyecto de ejemplo utilizando Astro para crear una aplicación de listado de Pokémon. Puedes ver el proyecto en vivo en el siguiente enlace:
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+[https://cinlo-pokemon-astro.netlify.app/](https://cinlo-pokemon-astro.netlify.app/)
 
-## 🚀 Project Structure
+## 🚀 Estructura del Proyecto
 
-Inside of your Astro project, you'll see the following folders and files:
+Dentro de tu proyecto Astro, verás las siguientes carpetas y archivos:
 
 ```text
 /
 ├── public/
 ├── src/
+│   ├── components/
+│   │   └── pokemons/
+│   │       └── PokemonCard.astro
+│   ├── interfaces/
+│   │   └── favorite-pokemon.ts
+│   ├── layout/
+│   │   └── MainLayout.astro
 │   └── pages/
-│       └── index.astro
-└── package.json
+│       └── pokemons/
+│           └── [name].astro
+└── file:///d%3A/Programacion/pokemon-astro/package.json
 ```
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+Astro busca archivos `.astro` o `.md` en el directorio `src/pages/`. Cada página se expone como una ruta basada en su nombre de archivo.
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+## 🧞 Comandos
 
-Any static assets, like images, can be placed in the `public/` directory.
+Todos los comandos se ejecutan desde la raíz del proyecto, desde una terminal:
 
-## 🧞 Commands
-
-All commands are run from the root of the project, from a terminal:
-
-| Command                   | Action                                           |
+| Comando                   | Acción                                           |
 | :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+| `npm install`             | Instala las dependencias                         |
+| `npm run dev`             | Inicia el servidor de desarrollo en `localhost:4321` |
+| `npm run build`           | Construye el sitio de producción en `./dist/`    |
+| `npm run preview`         | Previsualiza tu construcción localmente, antes de desplegar |
+| `npm run astro ...`       | Ejecuta comandos de CLI como `astro add`, `astro check` |
 
-## 👀 Want to learn more?
+## 📁 Estructura de Carpetas
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+- **public/**: Archivos estáticos como imágenes.
+- **src/**: Código fuente del proyecto.
+  - **components/**: Componentes de Astro/React/Vue/Svelte/Preact.
+  - **interfaces/**: Definiciones de tipos TypeScript.
+  - **layout/**: Componentes de diseño.
+  - **pages/**: Páginas del sitio.
+
+## 🌟 Características
+
+- Listado de Pokémon con imágenes y detalles.
+- Navegación entre diferentes páginas de Pokémon.
+- Funcionalidad para marcar Pokémon como favoritos.
+
+## 📦 Instalación
+
+Para instalar y ejecutar el proyecto localmente, sigue estos pasos:
+
+1. Clona el repositorio:
+   ```sh
+   git clone git@github.com:CinLo82/pokemon-astro.git
+   ```
+2. Navega al directorio del proyecto:
+   ```sh
+   cd tu-repositorio
+   ```
+3. Instala las dependencias:
+   ```sh
+   npm install
+   ```
+4. Inicia el servidor de desarrollo:
+   ```sh
+   npm run dev
+   ```
+
+## 🚀 Despliegue
+
+El proyecto está desplegado en Netlify. Puedes ver el sitio en vivo en el siguiente enlace:
+
+[https://cinlo-pokemon-astro.netlify.app/](https://cinlo-pokemon-astro.netlify.app/)
+
+## 🛠️ Tecnologías Utilizadas
+
+- [Astro](https://astro.build/)
+- [TypeScript](https://www.typescriptlang.org/)
+- [Tailwind CSS](https://tailwindcss.com/)
+- [Solid.js](https://solidjs.com/)
+- [Netlify](https://www.netlify.com/)
+
+## 📄 Licencia
+
+Este proyecto está bajo la Licencia MIT. Consulta el archivo [LICENSE](LICENSE) para obtener más detalles.
+```
+
+

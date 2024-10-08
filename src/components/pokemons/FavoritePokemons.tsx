@@ -1,4 +1,4 @@
-import type { FavoritePokemon } from '@interfaces/favorite-pokemons'
+import type { FavoritePokemon } from '@interfaces/favorite-pokemon'
 import { createSignal, For } from 'solid-js';
 import { FavoritePokemonCard } from './FavoritePokemonCard';
 

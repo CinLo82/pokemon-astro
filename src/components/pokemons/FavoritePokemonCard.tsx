@@ -1,4 +1,4 @@
-import type { FavoritePokemon } from '@interfaces/favorite-pokemons'
+import type { FavoritePokemon } from '@interfaces/favorite-pokemon'
 import { createSignal, Show, type Component } from 'solid-js'
 
 interface Props{
